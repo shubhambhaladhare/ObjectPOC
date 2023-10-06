@@ -1,0 +1,41 @@
+Many vendors provide C++ compilers, including the Free Software Foundation, LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
+
+C++ is a high-level, general-purpose programming language created by Danish computer scientist Bjarne Stroustrup.
+
+It is almost always implemented in a compiled language.
+
+Modern C++ currently has object-oriented, generic, and functional features, in addition to facil.
+
+part_2.txt
+
+ities for low-level memory manipulation.
+
+First released in 1985 as an extension of the C programming language, it has since expanded significantly over time.
+
+Flowchart:
+
+
+
+W HGWRIOIOGWR	IGBO	WR
+\OIIOW	ROIIOGBINRW
+OIN	RWIONIOBIONRIOOIW
+OINIONOIWOINRW	
+INIONIONOINIOR
+OIWR	OINGWRIWR
+OINIONI	WR
+KNIONOIONOWER	
+KNOONOW	G
+[OIEJFOI	JFEIWOJ]INONOINOIN
+WKNGNOIROgropre
+knwionnnGOINRNGIONIRGBUIBWNRGINUIGUIWBRWGUIWGnwuringuiwnRNUARNIGNUIRNGUBNWGBWRIUBURGR'
+JKWGIGGWIOgnwwRIONGIONENIOiognWGNIONIOGRIN
+INWGNGRoinnwGIONNWGIONWNGionWNIGOIOGNRWigoiNWGUIBWUIRgbiwrgbo
+jnasigiriosngioaringiunrKGNIWGNFoigjBRGKJRBGjkWG JW
+M WJKG JINGWRiognIOGNNWGINWEOIGNNWGEionewgioGE
+EGNGNIONGWEIONWIONRWOITNRWJIGJnrwkjgNWJGNJGKRNRWNGWJGRWIhigbrjbfadnbfdjbguetithpuiethapriugjrnga;fgnrwaj;kngrw
+iunasrginripnaripungpiuragiugpiunrpiugnpIARWGPIRWHAPUIGNPIRNGIRNWAGIJNGWJWGNRGRA;NGR
+JNGRAWINGIARNGLRNGJAJGRAENGLJRNEARINREINERIGANIANERAIRENGLEIJNLNERGRLJAENALKRENRELKGNALKNAJKRE
+JKANRGLIGNRILNRGJLIJLARGGLRNRGJIEJGNRAEG
+JWNNGRJNGNGR
+
+Flowchart: Split large text file. 
