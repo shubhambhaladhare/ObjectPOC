@@ -1,0 +1,218 @@
+syntax = "proto3";
+package s3service;
+
+message s3authorization
+{
+	string accessKey = 1;
+	string secretKey = 2;
+}
+
+message errorDetails
+{
+	string errorMessage = 1;
+	string errorType = 2;
+	string errorCode = 3;
+	string hostId = 4; 
+	string methodType = 5;
+	string resourceType = 6;
+	string key = 7;
+}
+
+message s3accesskey
+{
+	enum accesskeyOperation
+	{
+		CREATE_KEY = 0;
+		DELETE_KEY = 1;
+		CHANGE_KEY_STATUS = 2;
+		LAST_USED_TIME = 3;
+	}
+	
+	accesskeyOperation accessOp = 1;
+	repeated s3authorization auth = 2; 
+	string accessKeyId = 3;
+	string secretKey = 4;
+	string accessKeySelector = 5;
+	string username = 6;
+	string createDate = 7;
+	string status = 8;
+	string lastUsedDate = 9;
+	string ServiceName = 10;
+	string Region = 11;
+	repeated errorDetails errorInfo = 12;
+}
+
+message s3account
+{
+	enum accountOperation
+	{
+		CREATE_ACCOUNT = 0;
+		DELETE_ACCOUNT = 1;
+	}
+	
+	accountOperation accOp = 1;
+	string accountname = 2;
+	string password = 3;
+	string accountId = 4;
+	repeated s3accesskey keys = 5;
+	repeated errorDetails errorInfo = 6;
+}
+
+message s3user
+{
+	enum userOperation
+	{
+		CREATE_USER = 0;
+		DELETE_USER = 1;
+		UPDATE_USER = 2; 
+	}
+
+	userOperation userOp = 1;
+	string username = 2;
+	repeated s3authorization auth = 3; 
+	repeated errorDetails errorInfo = 4;
+	string newusername = 5;
+	string permission = 6;
+	string test = 7;
+	string userID = 8;
+	string createDate = 9;
+	string arn = 10;
+	string path = 11;
+}
+
+message tags
+{
+	string key = 1;
+	string value = 2;
+}
+
+message s3bucket
+{
+	enum bucketOperation
+	{
+		CREATE_BUCKET  = 0; 
+		DELETE_BUCKET = 1;
+		LIST_BUCKET = 2; 
+		PUT_BUCKET_POLICY = 3; 
+		GET_BUCKET_POLICY = 4; 
+		PUT_BUCKET_VERSION = 5;
+		GET_BUCKET_VERSION = 6;
+		PUT_BUCKET_TAG = 7;
+		GET_BUCKET_TAG = 8;
+		LIST_OBJECT = 9;
+		LIST_OBJECT_VERSIONS = 10;
+		SET_LIFECYCLE_RULE = 11;
+		SET_STORAGE_QUOTA = 12;
+		GET_STORAGE_LENS = 13;
+	}
+	
+	bucketOperation buckOp = 1; 
+	repeated s3authorization auth = 2;
+	repeated tags tag = 3;
+	repeated errorDetails errorInfo = 4;
+	string bucketName = 5;
+	s3user currentUser = 6;
+	s3user bucketOwner = 7;
+	string version = 8;
+	string list_object = 9;
+	string list_object_versions = 10;
+	string archive = 11;
+	string expiry_date =12; 
+	string storageQuota = 13;
+	string storageLens = 14;
+	string total_size=15;
+	string size_consumed=16;
+	string free_space=17;
+}
+
+message s3object
+{
+	enum objectOperation
+	{
+		PUT_OBJECT = 0; 
+		GET_OBJECT = 1;
+		DELETE_OBJECT = 2;
+		PUT_MULTIPART_OBJECT = 3;
+		GET_MULTIPART_OBJECT = 4;
+		PUT_TAG = 5;
+		GET_TAG = 6;
+		GET_OBJECT_BY_VERSION = 13;
+		LIST_DELETE_MARKER_OBJECT = 14;
+		GET_DELETE_MARKER_OBJECT = 15;
+		
+		   UN_USED = 7;
+		   GET_OBJECT_PROP = 8;
+		   INIT_MULTIPART_OBJECT = 9;
+		   COMPLETE_MULTIPART_OBJECT = 10;
+		   ABORT_MULTIPART_OBJECT = 11;
+		   LIST_MULTIPART_OBJECT = 12;
+		   PUT_MULTIPART= 16;
+
+ 
+                   PUT_OBJECT_LOCKING=17;
+    
+                   SET_OBJECT_RETENTION=18;
+        
+	}	
+	 
+	objectOperation objectOp = 1;
+	repeated s3authorization auth = 2;
+	repeated errorDetails errorInfo = 3;
+	string bucketName = 4;
+	string objectName = 5;
+	int32 len = 6;
+	string objectPath = 7;
+	string tag = 8;
+	string putId = 9;
+	string versionId = 10;
+	string list_object = 14;
+	string getobjectbyversionId = 15;
+	string listdeleteMarker = 16;
+	string markerId = 17;
+	string filecount = 18;
+	string filename = 19;
+	string filesize = 20;
+	string file = 21;
+	  repeated string multiPartList = 11;
+	  string multiPartNo = 12;
+	  string multiPartUniqueId = 13;
+          bool locking=22;
+          string retention_duration=23;
+	
+}
+
+message S3server
+{
+	enum serveroperation
+	{
+		Serverdown=0;
+	}
+	serveroperation serverOp = 1;
+	repeated s3authorization auth = 2;
+	repeated errorDetails errorInfo = 3;
+	string serverMessage = 4;
+	
+}
+
+message serviceRequestResponse
+{
+	enum serviceEntity 
+	{
+		USER = 0;
+		ACCOUNT = 1;
+		BUCKET = 2;
+		OBJECT = 3; 
+		LOCATION = 4;
+		ACCESSKEY = 5;
+		SERVER = 6;
+	};
+	
+	serviceEntity entityType = 1 ;
+	string requestId = 2;	
+	repeated s3user user = 3;
+	repeated s3account account = 4;
+	repeated s3bucket bucket = 5;
+	repeated s3object object = 6; 
+	repeated s3accesskey accesskey = 7;
+	repeated S3server server = 8;
+}
