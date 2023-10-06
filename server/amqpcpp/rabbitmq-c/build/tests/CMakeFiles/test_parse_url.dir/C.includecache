@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/rabbitmq-c/amqp.h
+rabbitmq-c/export.h
+-
+sys/types.h
+-
+stddef.h
+-
+stdint.h
+-
+rabbitmq-c/framing.h
+-
+
+../include/rabbitmq-c/framing.h
+rabbitmq-c/amqp.h
+-
+rabbitmq-c/export.h
+-
+
+/home/kishore/S3Server/amqpcpp/rabbitmq-c/tests/test_parse_url.c
+config.h
+/home/kishore/S3Server/amqpcpp/rabbitmq-c/tests/config.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+inttypes.h
+-
+rabbitmq-c/amqp.h
+-
+
+include/rabbitmq-c/export.h
+
+librabbitmq/config.h
+
