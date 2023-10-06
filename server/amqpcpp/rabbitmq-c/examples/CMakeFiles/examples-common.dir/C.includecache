@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kishore/S3Server/amqpcpp/rabbitmq-c/examples/unix/platform_utils.c
+stdint.h
+-
+sys/time.h
+-
+time.h
+-
+unistd.h
+-
+
+/home/kishore/S3Server/amqpcpp/rabbitmq-c/examples/utils.c
+ctype.h
+-
+stdarg.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+rabbitmq-c/amqp.h
+-
+rabbitmq-c/framing.h
+-
+stdint.h
+-
+utils.h
+/home/kishore/S3Server/amqpcpp/rabbitmq-c/examples/utils.h
+
+/home/kishore/S3Server/amqpcpp/rabbitmq-c/examples/utils.h
+
