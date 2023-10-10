@@ -214,16 +214,19 @@ bool initDatabase(database& d)
 	if (result.empty())
 	{
 		ret = d.executeQuery("create table Msys_DeleteMarker(" \
-				"objectId varchar(255) PRIMARY KEY, " \
-				"VersionStatus varchar(255) NOT NULL, "\
-				"objectName varchar(255) NOT NULL, " \
-				"objectsize varchar(255) NOT NULL, "\
-				"objectVersion varchar(255), "\
-				"creationTimestamp varchar(255) NOT NULL, " \
-				"bucketId varchar(255) FOREIGN KEY REFERENCES Msys_Buckets(bucketId), "\
-				"deleteMarkerID varchar(255) NOT NULL, "\
-				"bucketName varchar(255) NOT NULL,"
-				"DeletedCreationTimestamp varchar(255))");
+                                "objectId varchar(255) PRIMARY KEY, " \
+                                "VersionStatus varchar(255) NOT NULL, "\
+                                "objectName varchar(255) NOT NULL, " \
+                                "objectsize varchar(255) NOT NULL, "\
+                                "objectVersion varchar(255), "\
+                                "creationTimestamp varchar(255) NOT NULL, " \
+                                "bucketId varchar(255) FOREIGN KEY REFERENCES Msys_Buckets(bucketId), "\
+                                "deleteMarkerID varchar(255) NOT NULL, "\
+                                "bucketName varchar(255) NOT NULL,"\
+                                "DeletedCreationTimestamp varchar(255),"\
+                                "objectLocking varchar(255),"\
+                                 "objectRetention varchar(255) NOT NULL)");
+
 
 		if (ret == -1)
 		{
@@ -286,7 +289,7 @@ bool initDatabase(database& d)
 
 
 
-		ret = d.executeQuery("create table Msys_Objects(" \
+		 ret = d.executeQuery("create table Msys_Objects(" \
                                 "objectId varchar(255) PRIMARY KEY, " \
                                 "VersionStatus varchar(255) NOT NULL, "\
                                 "objectName varchar(255) NOT NULL, " \
@@ -298,6 +301,7 @@ bool initDatabase(database& d)
                                 "bucketId varchar(255) FOREIGN KEY REFERENCES Msys_Buckets(bucketId),"\
                                 "objectLocking varchar(255),"\
                                  "objectRetention varchar(255) NOT NULL)");
+
 
 		if (ret == -1)
 		{
