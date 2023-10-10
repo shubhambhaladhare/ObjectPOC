@@ -1030,9 +1030,10 @@ void object::getDeleteMarker(s3service::s3object& objectResponse, database& d)
 			//string bucketId = result1[0][6];
 
 			retcode = d.executeQuery("Insert into Msys_Objects " \
-			    			"(objectId, VersionStatus,objectName, objectsize, objectVersion,creationTimestamp, bucketId,objectLocking) " \
+			    			"(objectId, VersionStatus,objectName, objectsize, objectVersion,creationTimestamp, bucketId,objectLocking,objectRetention) " \
 			    			"values " \
-"('"+ objId +"', '"+ versionstatus +"', '"+ objName +"', '"+ objsize +"', '" + versionId +"', '"+ creationTime +"', '"+ bucketId +"','"+ std::to_string(m_objectlocking) +"')");
+"('"+ objId +"', '"+ versionstatus +"', '"+ objName +"', '"+ objsize +"', '" + versionId +"', '"+ creationTime +"', '"+ bucketId +"','"+ std::to_string(m_objectlocking) +"','"+ m_retentionDate +"')");
+
 
 			if (retcode != 0)
 			{
@@ -1571,9 +1572,9 @@ void object::deleteObject(database& d,s3service::s3object& objectResponse,std::s
 //
 //                  else{
 
-			retcode = d.executeQuery("Insert into Msys_DeleteMarker(objectId,VersionStatus, objectName, objectsize, objectVersion, creationTimestamp, bucketId, deleteMarkerID, bucketName, DeletedCreationTimestamp,objectLocking) " \
+			retcode = d.executeQuery("Insert into Msys_DeleteMarker(objectId,VersionStatus, objectName, objectsize, objectVersion, creationTimestamp, bucketId, deleteMarkerID, bucketName, DeletedCreationTimestamp,objectLocking,objectRetention) " \
 				    			"values "\
-"('"+ objId +"', '"+ versionStatus +"', '"+ objName +"', '"+  objSize +"', '"+ versionId +"', '"+ creationTime +"', '"+ bucketId +"', '"+ deletemarkerId + "', '" + bucketName + "', '" + deletedtime + "','"+ std::to_string(m_objectlocking) +"')");
+"('"+ objId +"', '"+ versionStatus +"', '"+ objName +"', '"+  objSize +"', '"+ versionId +"', '"+ creationTime +"', '"+ bucketId +"', '"+ deletemarkerId + "', '" + bucketName + "', '" + deletedtime + "','"+ std::to_string(m_objectlocking) +"','"+ m_retentionDate +"' )");
 				if (retcode != 0)
 				{
 					std::cout << "ExecuteQuery Failed insert Deletemarker" << std::endl;
